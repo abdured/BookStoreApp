@@ -34,7 +34,8 @@ const user = await  UserService.addUser(req.body);
     }
     
     
-    static async login(req,res){ 
+    static async login(req,res)
+    { 
    
             const{username,password} = req.body;
 
