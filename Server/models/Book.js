@@ -15,7 +15,7 @@ const Author=mongoose.Schema({
 });
 
 const Book=mongoose.Schema({
-book_id:{type:String,required:true,index:true },
+book_id:{type:Number,required:true,index:true },
 Title:{type:String,required:true,index:true },
 TotalPage:{type:Number,required:true },
 ISBN:{type:String,required:true,index:true },

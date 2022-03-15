@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm!:FormGroup
-  constructor(private formBuilder:FormBuilder,private userservice:AuthService) { 
+  constructor(private formBuilder:FormBuilder,private userservice:AuthService,private router:Router) { 
     this.signupForm = formBuilder.group({
       'username':['',Validators.required],
       'password':['',Validators.required],
@@ -25,6 +26,9 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.userservice.isLogenIn()){
+      this.router.navigate(['home']);
+    }
   }
 
 

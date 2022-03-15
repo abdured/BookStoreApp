@@ -11,6 +11,8 @@ import { HomeComponent } from './User/home/home.component';
 import { HeaderComponent } from './Shared/header/header.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookviewComponent } from './Book/bookview/bookview.component';
+import { BookdetailComponent } from './Book/bookdetail/bookdetail.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    BookviewComponent,
+    BookdetailComponent
   ],
   imports: [
     CommonModule,

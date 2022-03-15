@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-router.get('/' ,userController.getAllUsers)
+router.get('/' ,varifyTokenMiddleware,userController.getAllUsers)
 router.post('/login' ,userController.login)
 router.post('/signup' ,userController.signup)
 

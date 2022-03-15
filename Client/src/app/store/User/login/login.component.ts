@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
-  constructor(private formBuilder:FormBuilder,private userService:AuthService) { 
+  constructor(private formBuilder:FormBuilder,private userService:AuthService,private router:Router) { 
 
        
     this.loginForm =formBuilder.group({
@@ -20,6 +21,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.userService.isLogenIn()){
+      this.router.navigate(['home']);
+    }
   }
 
   login()

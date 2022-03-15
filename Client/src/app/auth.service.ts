@@ -7,6 +7,8 @@ import jwtDecode from 'jwt-decode';
 })
 export class AuthService {
   serverEndPoint:string ='http://localhost:3000/api/users'
+
+   decodedToken: { [key: string]: string } ={}
   constructor(private http:HttpClient,private router: Router) { }
 
   getAuthToken()
@@ -16,6 +18,11 @@ export class AuthService {
   setAuthToken(data:string)
   {
     localStorage.setItem('auth_token',data);
+  }
+  setNameAndRole(n:string,r:string)
+  {
+    localStorage.setItem('user_name',n);
+    localStorage.setItem('user_role',r);
   }
 
   isLogenIn():boolean
@@ -39,9 +46,20 @@ export class AuthService {
         {
         
           this.setAuthToken(data);
-          let token =jwtDecode(data)
-          console.log(token);
+          // let token =jwtDecode(data)
+          // this.userData = jwtDecode(data)
+          this.decodedToken  = jwtDecode(data)
+          const {firstname,lastname,role} =this.decodedToken ;
+       this.setNameAndRole(firstname +" "+lastname,role)
+        if(this.isAdmain())
+        {
           this.router.navigate(['home']);
+        }
+        else
+        {
+          this.router.navigate(['home']);
+        }
+         
         }
         else{
           console.log(result)
@@ -54,15 +72,14 @@ export class AuthService {
   logout()
   {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user_name');
+    localStorage.removeItem('user_role');
   }
 
   signup(user:any)
   {
-  
-
-    user.role =1;
-
-    const headers = new HttpHeaders({ "Content-Type": "application/json" });
+      user.role ="user";
+      const headers = new HttpHeaders({ "Content-Type": "application/json" });
       this.http.post(`${this.serverEndPoint}/signup`,user,{ headers: headers })
       .subscribe((result:any)=>
       {
@@ -81,5 +98,29 @@ export class AuthService {
     
   
   }
- 
+
+
+  getName()
+  {
+    
+  return  localStorage.getItem('user_name')
+  }
+
+  getRole()
+  {
+      return  localStorage.getItem('user_role')
+  }
+  isAdmain():boolean
+  {
+    const role = this.getRole();
+  
+    if(role=="user")
+    {
+      return false;
+    }
+    else 
+    {
+      return true;
+    }
+  }
 }

@@ -12,14 +12,39 @@ module.exports = class BookService
         }
     }
 
-    static async getBook(book_id){
+    static async getBook(id){
         try {
-            const book = await  Book.findOne({book_id});
+            const book = await  Book.findOne({book_id:id});
+           
+            return book;
             
-            if(book)
-              {
-                return book;
-              }
+        } catch (error) {
+            console.log(`Could not fetch book ${error}`)
+        }
+    }
+
+
+    static async updateBookComment(id,newComment)
+    {
+      
+
+        try {
+            const book = await  Book.findOneAndUpdate({book_id:id},{$push:{comment :newComment}});
+          return book;
+            
+        } catch (error) {
+            console.log(`Could not fetch book ${error}`)
+        }
+    }
+
+    static async checkUserCommented(id,userId)
+    {
+      
+
+        try {
+            const book = await  Book.findOne({book_id:id ,comment: {"$in": [userId]}});
+          return book;
+            
         } catch (error) {
             console.log(`Could not fetch book ${error}`)
         }

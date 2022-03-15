@@ -5,7 +5,10 @@ const router = express.Router();
 
 
 
-router.get('/' ,bookController.getAllbooks)
-router.get('/:id' ,bookController.getSingleBook)
+router.get('/' ,varifyTokenMiddleware,bookController.getAllbooks)
+router.get('/:id' ,varifyTokenMiddleware,bookController.getSingleBook)
+router.get('/:id/comments', varifyTokenMiddleware,bookController.getBookComment)
+router.patch('/:id/comments' ,varifyTokenMiddleware,bookController.addBookComment)
+router.get('/:id/comments/:uid' ,varifyTokenMiddleware,bookController.isCommented)
 
 module.exports =router;
