@@ -1,6 +1,7 @@
 const  express = require('express');
 const mongoose = require('mongoose');
 const UserRoute =require('./routes/users');
+const BookRoute =require('./routes/book');
 const cors = require('cors');
 require("dotenv").config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors())
 
 
 app.use('/api/users',UserRoute);
+app.use('/api/books',BookRoute);
 
 app.use((err,req,res,next)=>{
 	console.error(err);
