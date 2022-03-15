@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +39,8 @@ export class AuthService {
         {
         
           this.setAuthToken(data);
+          let token =jwtDecode(data)
+          console.log(token);
           this.router.navigate(['home']);
         }
         else{
