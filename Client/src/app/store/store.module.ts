@@ -9,7 +9,6 @@ import { LoginComponent } from './User/login/login.component';
 import { SignupComponent } from './User/signup/signup.component';
 import { HomeComponent } from './User/home/home.component';
 import { HeaderComponent } from './Shared/header/header.component';
-import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -20,8 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     HomeComponent,
-    HeaderComponent,
-    AdminHomeComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,
