@@ -3,9 +3,7 @@ import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <app-view-single-book></app-view-single-book>
-  `,
+  templateUrl :'./app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

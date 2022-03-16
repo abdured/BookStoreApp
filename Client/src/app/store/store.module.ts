@@ -11,8 +11,12 @@ import { HomeComponent } from './User/home/home.component';
 import { HeaderComponent } from './Shared/header/header.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { BookviewComponent } from './Book/bookview/bookview.component';
 import { BookdetailComponent } from './Book/bookdetail/bookdetail.component';
+import { AddBookComponent } from './Book/add-book.component';
+import { UpdateBookComponent } from './Book/update-book.component';
+import { ViewAllbookComponent } from './Book/view-allbook/view-allbook.component';
+import { ViewSingleBookComponent } from './Book/view-single-book/view-single-book.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,20 +26,30 @@ import { BookdetailComponent } from './Book/bookdetail/bookdetail.component';
     LogoutComponent,
     HomeComponent,
     HeaderComponent,
-    BookviewComponent,
-    BookdetailComponent
+    BookdetailComponent,
+    AddBookComponent,
+    UpdateBookComponent,
+    ViewAllbookComponent,
+    ViewSingleBookComponent
+
   ],
   imports: [
     CommonModule,
     StoreRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   exports:[
     HeaderComponent,
     LoginComponent,
-            LogoutComponent,
-            SignupComponent,
-            HomeComponent
+    LogoutComponent,
+    SignupComponent,
+    HomeComponent,
+    BookdetailComponent,
+    AddBookComponent,
+    UpdateBookComponent,
+    ViewAllbookComponent,
+    ViewSingleBookComponent
   ]
 })
 export class StoreModule { }

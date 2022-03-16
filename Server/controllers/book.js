@@ -8,11 +8,7 @@ module.exports = class book{
             if(!books){
                res.status(404).json({"success":false,"Message":"There are no books!"} )
             }
-<<<<<<< HEAD
             res.json({"success":true,"data":books});
-=======
-            res.json(books);
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96
           } catch (error) {
              res.status(500).json({error: error})
           }
@@ -23,20 +19,11 @@ module.exports = class book{
     
     static async getSingleBook(req,res)
     { 
-<<<<<<< HEAD
-         console.log(req.params.id);
-=======
-   
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96
             const bookfound = await BookService.getBook(req.params.id)
             if(bookfound)
         {
             
-<<<<<<< HEAD
             res.json(bookfound);
-=======
-            res.json({"success":true,"data":bookfound});
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96
 
         }
         else{
@@ -45,7 +32,6 @@ module.exports = class book{
           
     }
 
-<<<<<<< HEAD
     static async AddBook(req,res)
     { 
          await BookService.addBook(req.body)
@@ -55,7 +41,6 @@ module.exports = class book{
 
 
 
-=======
     static async getBookComment(req,res)
     {
         const bookfound = await BookService.getBook(req.params.id)
@@ -97,15 +82,7 @@ module.exports = class book{
             res.json({"success":false,"Message":" not Commented"});
         }
     }
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96
 }
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96

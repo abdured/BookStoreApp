@@ -54,7 +54,7 @@ import { PostServiceService } from './bookService/post-service.service';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent  {
-  myform:FormGroup;
+  myform!:FormGroup;
   AuthorArray!:FormArray;
   data!:object;
 
