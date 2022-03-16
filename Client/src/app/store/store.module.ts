@@ -39,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
