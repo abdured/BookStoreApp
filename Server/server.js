@@ -18,7 +18,7 @@ mongoose
 app.use(express.json())
 app.use(cors())
 
-
+app.use('/uploads', express.static('./public/uploads'));
 app.use('/api/users',UserRoute);
 app.use('/api/books',BookRoute);
 

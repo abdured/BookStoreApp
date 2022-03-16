@@ -6,16 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class GetAllServiceService {
 
-  constructor(private http:HttpClient) { }
-  
-  getAllService(callback: (data:any) => void) :any{
+  constructor(private http: HttpClient) { }
+
+  getAllService(callback: (data: any) => void): any {
     return this.http.get('http://localhost:3000/api/books')
-       .subscribe( res => {
-         callback(res);
-        },
-        err => { console.log('Error occurred'); } );
-     
-     }
-     
-     }
+      .subscribe(res => {
+        callback(res);
+      },
+        err => { console.log('Error occurred'); });
+
+  }
+
+}
 

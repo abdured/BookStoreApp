@@ -29,7 +29,20 @@ module.exports = class BookService
         }
     }
 
-
+    static async findAndUpdateBook(id,data){
+        try {
+             await Book.updateOne({ book_id:id},data);
+        } catch (error) {
+            console.log(`Could not save book ${error}`)
+        }
+    }
+    static async deleteBook(id){
+        try {
+             await Book.deleteOne({ book_id:id});
+        } catch (error) {
+            console.log(`Could not save book ${error}`)
+        }
+    }
 
 
     static async updateBookComment(id,newComment)

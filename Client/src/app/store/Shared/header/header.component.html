@@ -6,7 +6,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item"><a class="nav-link"[routerLink]="['login']" *ngIf="userService.isLogenIn() && userService.isAdmain()">Add Books</a></li>
+                    <li class="nav-item"><a class="nav-link"[routerLink]="['books/add']" *ngIf="userService.isLogenIn() && userService.isAdmain()">Add Books</a></li>
                     <li class="nav-item"><a class="nav-link" *ngIf="userService.isLogenIn()">{{userService.getName()}}</a></li>
                     <li class="nav-item"><a class="nav-link"[routerLink]="['login']" *ngIf="!userService.isLogenIn()">login</a></li>
                     <li class="nav-item"><a class="nav-link"[routerLink]="['signup'] "  *ngIf="!userService.isLogenIn()">Signup</a></li>

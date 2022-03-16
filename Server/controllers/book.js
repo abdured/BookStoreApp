@@ -22,8 +22,11 @@ module.exports = class book{
             const bookfound = await BookService.getBook(req.params.id)
             if(bookfound)
         {
-            
-            res.json(bookfound);
+            // const {file} =bookfound;
+             // bookfound.file = 'http://localhost:3000/public/uploads/'+ file;
+            // console.log(bookfound.file)
+            // res.json({"success":true,"data":bookfound});
+            res.json({"success":true,"data":bookfound});
 
         }
         else{
@@ -37,6 +40,20 @@ module.exports = class book{
          await BookService.addBook(req.body)
          res.json({success:"seccesfully added "});
     
+}
+
+static async findAndUpdateBook(req,res)
+{ 
+     await BookService.findAndUpdateBook(req.params.id,req.body)
+     res.json({success:"seccesfully Updated "});
+
+}
+
+static async deleteBook(req,res)
+{ 
+     await BookService.deleteBook(req.params.id)
+     res.json({success:"seccesfully deleted "});
+
 }
 
 
@@ -60,6 +77,7 @@ module.exports = class book{
         const bookfound = await BookService.getBook(req.params.id)
         if(bookfound)
         {
+            console.log(req.body)
            BookService.updateBookComment(req.params.id,req.body)
       
            res.json({"success":true,"Message":"Comment added successfull"});

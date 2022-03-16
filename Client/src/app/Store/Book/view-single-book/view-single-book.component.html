@@ -1,1 +1,46 @@
-<p>view-single-book works!</p>
+
+<div class="row">
+  
+    <div class="col-md-6">
+        <h4>{{value.Title}}</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Total Pages : {{value.TotalPage}}</li>
+            <li class="list-group-item">ISBN : {{value.ISBN}}</li>
+            <li class="list-group-item">Edition : {{value.Edition}}</li>
+          </ul>
+          <a type="button" href="http://localhost:3000/uploads/{{value.file}}" class="btn btn-primary btn-lg">Download</a>
+<div *ngIf="userService.isLogenIn() && !userService.isAdmain()">
+
+          
+          
+        </div>
+    </div>
+    <div class="col-md-6">
+
+      
+      <div *ngIf="comments"></div>
+        <form [formGroup]="addComment" (ngSubmit)="onSubmit()">
+            <label for="exampleFormControlTextarea1" class="form-label">Leave a Comment</label>
+            <textarea class="form-control mb-3" rows="3" cols="5" formControlName="comment"></textarea>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+       
+       
+              
+         </div>
+     </div>
+
+     <div class="row mb-5 mt-2">
+      <h4>Comments</h4>
+      <ul class="list-group mt-3">
+        <li  *ngFor="let comment of comments" class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold"><b>{{comment.user_id}}</b></div>
+            <p>{{comment.Body}}</p>
+
+          </div>
+        
+        </li>
+        
+      </ul>
+     </div>

@@ -4,8 +4,6 @@ content-type: application/json
 ###
 GET  http://localhost:3000/api/books/1 HTTP/1.1
 content-type: application/json
-<<<<<<< HEAD
-=======
 
 ###
 GET http://localhost:3000/api/books/1/comments HTTP/1.1
@@ -26,4 +24,3 @@ content-type: application/json
     ###
 GET http://localhost:3000/api/books/1/comments/jane joe  HTTP/1.1
 content-type: application/json
->>>>>>> 1eec277fd99947e8804f216a71463d7c95a0fe96
