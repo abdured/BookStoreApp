@@ -43,7 +43,9 @@ const user = await  UserService.addUser(req.body);
             const userFound = await  UserService.getUser(username,password);
             if(userFound)
         {
-            const returntoken =Token.generateJwt(userFound,process.env.KEY);
+            const {username,password,firstname,lastname,email,role} =userFound;
+            const tokendata ={username,firstname,lastname,email,role}
+            const returntoken =Token.generateJwt(tokendata,process.env.KEY);
             res.json({"success":true,"data":returntoken});
 
         }

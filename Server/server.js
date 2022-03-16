@@ -6,9 +6,9 @@ const cors = require('cors');
 require("dotenv").config();
 const app = express();
 
-
+const DbURI = process.env.ATLAS_URI;
 mongoose
-	.connect("mongodb://localhost:27017/bookstoredb", { useNewUrlParser: true })
+	.connect(DbURI, { useNewUrlParser: true })
 	.then(() => {
         console.log(`DB successfully connected`)
        

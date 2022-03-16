@@ -1,0 +1,19 @@
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold"><a [routerLink]="['/bookdetail',1]"> Booktitle</a></div>
+           Edition
+          </div>
+         <div *ngIf="userService.isLogenIn() && userService.isAdmain()">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+           
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+
+        </div>
+        </li>
+        
+      </ul>
+</div>

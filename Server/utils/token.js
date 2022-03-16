@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
     const  generateJwt =(data,key)=>{
-        return jwt.sign(data.toJSON(),key);
+        return jwt.sign(data,key);
       }
 
 
