@@ -31,10 +31,11 @@ export class ViewSingleBookComponent implements OnInit {
     });
 
     this.getonebook.getOneService(this.bid, (data: any) => {
-      console.log(data.data);
-      // if (!data.success) {
-      //   this.router.navigate(['books']);
-      // }
+      console.log(data);
+      if (!data.success) {
+        this.router.navigate(['books']);
+      }
+      this.value = data.data;
       this.comments = this.value['comment']
 
       console.log(this.value);
